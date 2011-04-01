@@ -1,0 +1,12 @@
+
+/* PANEL */
+
+#qs_zi_tool_panel {
+	position: absolute;
+	top: 160px;
+	left: 440px;
+	background-color: green;
+	color:white;
+	border:1px solid black;
+	z-index: 1000;
+}
