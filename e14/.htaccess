@@ -1,0 +1,6 @@
+
+RewriteEngine On
+RewriteBase /p/e14/
+
+RewriteRule calc/(.*) calculator.cgi?q=$1 [L,QSA]
+

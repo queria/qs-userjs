@@ -1,0 +1,102 @@
+/* QUICK LAUNCH */
+
+#qsLinks {
+	position:absolute;
+	left:550px;
+	top:16px;
+	text-align:left;
+}
+
+#qsLinks li {
+	float:left;
+	margin-right: 7px;
+	display: block;
+	width: 60px;
+	height: 60px;
+}
+
+.qsLink {
+	background-attachment: scroll
+	background-origin: padding-box;
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-image: url("http://s2.cz.europe1400.com/skin/interface/guiFrame/quickJumpSprite.jpg");
+	background-clip: border-box;
+}
+.qsLink a {
+	display:block;
+	width: 60px;
+	height: 60px;
+	padding-top:1px !important;
+	text-align:center;
+	padding-left: 9px !important;
+}
+.qsLink0 {
+	background-position: -360px -420px;
+}
+.qsLink2 {
+	background-position: -240px -300px;
+}
+.qsLink4 {
+	background-position: -300px -300px;
+}
+.qsLink6 {
+	background-position: -300px -240px;
+}
+
+.marketingTeaser {
+	display: none;
+}
+
+
+/* QUICK BUY */
+#toggleQB, #executeQB, #sumQB { 
+	position:absolute;
+	font-size:11px;
+	top:18px;
+	right:70px;
+}
+
+#executeQB {
+	right:100px;
+}
+
+#sumQB {
+	right: 130px;
+}
+
+.chooseQB {
+	font-style:italic;
+	position:absolute;
+	right:3px;
+}
+
+.marketProduct {
+	border: 1px solid yellow;
+	border-width: 0px;
+}
+
+#toggleQB:hover, #executeQB:hover, .chooseQB:hover { color:black; }
+
+/* TRANSPORT SUMMARY */
+#transSum {
+	position:absolute;
+	font-size:11px;
+	top:18px;
+	right:70px;
+}
+
+#transSumRes {
+	position: absolute;
+	top:18px;
+	right:75px;
+	border: 1px dashed #ffdc56;
+	color: #fef3b8;
+	background-color: #553910;
+	width:550px;
+	height:250px;
+	z-index: 10;
+	padding:1em !important;
+	text-align:center;
+}
+
