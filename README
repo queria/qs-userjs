@@ -1,11 +1,11 @@
+My usefull(?) userJS/css tweaks for few web sites.
 
-Some usefull(?) userJS/css for little scripting of web games.
-
-Currently only for this games:
-* Europe1400 (The Guild)
-* Molehill Empire (Wurzelimperium / Zelene Imperium)
+You can find here:
+* webgames:
+** Europe1400 (The Guild)
+** Molehill Empire (Wurzelimperium / Zelene Imperium)
 
 Usage depends on your browser.
 Learn how to add userJS for specific website into your browser.
-See www.opera.com/docs/userjs/ for Opera or www.greasespot.net for Firefox.
+See http://www.opera.com/docs/userjs/ for Opera or http://scriptish.org/ for Firefox.
 
