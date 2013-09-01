@@ -1,0 +1,23 @@
+/* vim: set et sw=2 ts=2 syntax=javascript: */
+{
+  "manifest_version": 2,
+
+  "name": "QS UlozTo Enhancement",
+  "description": "Makes UlozTo websites more user-friendly",
+  "author": "Queria Sa-Tas",
+  "homepage_url": "https://github.com/queria/qs-userjs",
+  "version": "0.2",
+
+  "content_scripts": [{
+      "matches": [
+        // for debugging
+        //"*://localhost/ulozto/*",
+
+        "*://www.uloz.to/*"
+        ,"*://uloz.to/*"
+        ,"*://www.ulozto.cz/*"
+        ,"*://ulozto.cz/*"
+        ],
+      "js": ["00_jquery.min.js", "ulozto.thumbs.user.js"]
+  }]
+}

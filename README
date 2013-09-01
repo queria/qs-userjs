@@ -1,6 +1,8 @@
 My usefull(?) userJS/css tweaks for few web sites.
 
 You can find here:
+* UlozTo enhancements (currently only thumbnailer, more still to be ported)
+Probably dead services or outdated:
 * Mu.FunFirst.cz - Clear login form (to enable creds autocompletion)
 * webgames:
 ** Europe1400 (The Guild)
@@ -9,4 +11,5 @@ You can find here:
 Usage depends on your browser.
 Learn how to add userJS for specific website into your browser.
 See http://www.opera.com/docs/userjs/ for Opera or http://scriptish.org/ for Firefox.
+For Chromium/Google Chrome it may work, but when needed i'll add Chrome Extension manifest.
 
