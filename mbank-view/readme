@@ -1,0 +1,6 @@
+this is actually not a user-js, as i don't want
+to inject anything into online banking obviously.
+
+it's localy viewable html page which can load
+csv export from mbank and visualise it as a graph
+using google charts js

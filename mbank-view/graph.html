@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>mBank history graph</title>
+<script src="jquery-1.8.2.js"></script>
+<script src="jquery.csv.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<body>
+<div>
+    <form>
+        <label for="fileIn">File: <input type="file" id="fileIn" name="fileIn" /></label>
+    </form>
+</div>
+<div id="output"></div>
+<div id="graph"></div>
+<script>
+google.load('visualization', '1', {packages: ['corechart', 'line']});
+jQuery(document).ready(function() {
+    function redrawGraph(entries) {
+        $('#output').html('Generating graph ... for ' + entries.length + ' entries');
+
+        var tmp = [];
+        var data = new google.visualization.DataTable();
+        data.addColumn('date', 'When');
+        data.addColumn('number', 'Balance');
+        //data.addColumn('number', 'Change');
+
+        for(var i=0; i < entries.length; i++) {
+            var when_parts = entries[i][0].split('-');
+            var when = new Date(when_parts[2], when_parts[1], when_parts[0]);
+            var balance = Number(entries[i][10].replace(' ', '').replace(',', '.'));
+            var change = Number(entries[i][9].replace(' ', '').replace(',', '.'));
+
+            data.addRow([when, balance]); //, change]);
+            tmp.push(when + ': ' + balance + ' (' + change + ')');
+        }
+        var options = {
+            hAxis: { title: 'When' },
+            vAxis: { title: 'Money' },
+            isStacked: true,
+            //pointSize: 2,
+            focusTarget: 'category',
+            series: [{}, {'color':'purple'}, {'color': 'gray'}],
+        };
+        var chart = new google.visualization.AreaChart( document.getElementById('graph') );
+        chart.draw(data, options);
+
+        $('#output').html('Generated graph for ' + entries.length + 'entries<br />'+ tmp.join('<br />'));
+    }
+    function processFile(evt) {
+
+        $('#output').html('Parsing content ...');
+        var cnt = evt.target.result.split('\n');
+        var pattern = /^[0-9]{2}-[0-9]{2}-[0-9]{4};/
+        cnt = cnt.filter(function(text) { return pattern.test(text); });
+
+        redrawGraph(
+                jQuery.csv.toArrays(
+                    cnt.join('\n'),
+                    {'separator': ';'}));
+    }
+    function handleFileSelect(evt) {
+        var out = '';
+        var f = evt.target.files[0];
+        if(f.type != 'text/csv') {
+            $('#output').html('Upload only csv!');
+            return false;
+        }
+        $('#output').html('Loading file ' + f.name);
+        var reader = new FileReader();
+        reader.onload = processFile;
+        reader.readAsText(f, 'CP1250');
+    }
+
+    if ( ! (window.File && window.FileReader && window.FileList && window.Blob)) {
+          alert('The File APIs are not fully supported in this browser.');
+          return false;
+    }
+    document.getElementById('fileIn').addEventListener('change', handleFileSelect, false);
+});
+</script>
+</body>
+</html>
